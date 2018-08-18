@@ -1,0 +1,16 @@
+#loginform{
+    padding-top: 60px
+}
+
+h1#loginform{
+    text-align: center;
+    font-size: 30px;
+}
+
+a#registerlink{
+    margin-left: 15px
+}
+
+#place_order{
+    text-align: center
+}

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Login Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+  <link rel="stylesheet" href="./custom.css">
+  <script src="./custom.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container">
+    <h1 id="loginform">Please login to continue</h1>
+    <form action="action_page.php">
+
+      <div class="container">
+        <div class="input-field col s6">
+          <input id="icon_prefix" type="text" class="validate">
+          <label for="icon_prefix">Username</label>
+        </div>
+
+        <div class="input-field col s6">
+          <input id="icon_prefix" type="password" class="validate">
+          <label for="icon_prefix">Password</label>
+        </div>
+
+        <p>
+          <label>
+            <input type="checkbox" />
+            <span>Remember me</span>
+          </label>
+        </p>
+        <a class="waves-effect waves-light btn" href="./html/dashboard.html">Login</a>
+        <a class="waves-effect waves-light btn">Forgot password</a>
+        <a id="registerlink" class="modal-trigger" href="#regis-modal">
+          <span>
+            <i>Dont't have an account? Register now</i>
+          </span>
+        </a>
+
+        <!-- Register modal -->
+        <div id="regis-modal" class="modal">
+          <div class="modal-content">
+            <h4>Register an account</h4>
+            <div class="row">
+              <form class="col s12">
+
+                <!-- 1st name and last name section -->
+                <div class="row">
+                  <!-- First Name -->
+                  <div class="input-field col s6">
+                    <input id="first_name" type="text" class="validate">
+                    <label for="first_name">First Name</label>
+                  </div>
+
+                  <!-- Last Name -->
+                  <div class="input-field col s6">
+                    <input id="last_name" type="text" class="validate">
+                    <label for="last_name">Last Name</label>
+                  </div>
+                </div>
+
+                <!-- Email & phone section -->
+                <div class="row">
+                  <!-- Email -->
+                  <div class="input-field col s6">
+                    <input id="email" type="email" class="validate">
+                    <label for="email">Email</label>
+                    <span class="helper-text" data-error="Invalid email format" data-success="Valid"></span>
+                  </div>
+
+                  <!-- Phone number -->
+                  <div class="input-field col s6">
+                    <input id="phone_number" type="text" class="validate">
+                    <label for="phone_number">Phone Number</label>
+                  </div>
+                </div>
+
+                <!-- password -->
+                <div class="row">
+                  <div class="input-field col s6">
+                    <input id="password" type="password" class="validate">
+                    <label for="password">Password</label>
+                  </div>
+
+                  <div class="input-field col s6">
+                    <input id="re_password" type="password" class="validate">
+                    <label for="re_password">Confirm your password</label>
+                  </div>
+                </div>
+
+                <!-- Personal informatiob -->
+                <div class="row">
+
+                  <!-- Gender -->
+                  <div class="input-field col s2">
+                    <p>Select your gender</p>
+                    <p>
+                      <label>
+                        <input class="with-gap" name="gender" type="radio" checked="checked" />
+                        <span>Male</span>
+                      </label>
+                      <label>
+                        <input class="with-gap" name="gender" type="radio" />
+                        <span>Female</span>
+                      </label>
+                    </p>
+                  </div>
+                  <!-- end of gender -->
+
+                  <!-- birthday -->
+                  <div class="input-field col s5">
+                    <p>Select your birthday</p>
+                    <input type="text" class="datepicker">
+                  </div>
+
+                  <!-- choose unversity -->
+                  <div class="input-field col s5 s4">
+                    <p>Choose your university</p>
+                    <select class="icons">
+                      <option value="" disabled selected>Choose your option</option>
+                      <option value="" data-icon="./res/imgs/kinhte.jpg">Đại học Kinh Tế</option>
+                      <option value="" data-icon="./res/imgs/duytan.jpg">Đại học Duy Tân</option>
+                      <option value="" data-icon="./res/imgs/bachkhoa.jpg">Đại học Bách Khoa</option>
+                      <option value="" data-icon="./res/imgs/ngoaingu.jpg">Đại học Ngoại Ngữ</option>
+                      <option value="" data-icon="./res/imgs/donga.jpg">Đại học Đông Á</option>
+                      <option value="" data-icon="./res/imgs/kientruc.jpg">Đại học Kiến Trúc</option>
+                      <option value="" data-icon="./res/imgs/spkt.jpg">Đại học Sư phạm kỹ thuật</option>
+                      <option value="" data-icon="./res/imgs">Cao đẳng Thương mại</option>
+                      <option value="" data-icon="./res/imgs">Cao đẳng Kinh tế kế hoạch</option>
+                    </select>
+                  </div>
+
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-light btn">Register</a>
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+          </div>
+        </div>
+        <!-- End of register modal -->
+      </div>
+
+    </form>
+  </div>
+</body>
+
+</html>
