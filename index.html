@@ -6,28 +6,30 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Login Page</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script language="JavaScript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="./custom.css">
   <script src="./custom.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 <body>
   <div class="container">
     <h1 id="loginform">Please login to continue</h1>
-    <form action="action_page.php">
+    <form name="login">
 
       <div class="container">
         <div class="input-field col s6">
-          <input id="icon_prefix" type="text" class="validate">
-          <label for="icon_prefix">Username</label>
+          <input id="txtUsername" type="text" class="validate" name="txtUsername" required>
+          <label for="txtUsername">Username</label>
+          <p id="username-validation" style="color: red"></p>
         </div>
 
         <div class="input-field col s6">
-          <input id="icon_prefix" type="password" class="validate">
-          <label for="icon_prefix">Password</label>
+          <input id="txtPassword" type="password" class="validate" required>
+          <label for="txtPassword">Password</label>
+          <p id="password-validation" style="color: red"></p>
         </div>
 
         <p>
@@ -36,7 +38,7 @@
             <span>Remember me</span>
           </label>
         </p>
-        <a class="waves-effect waves-light btn" href="./html/dashboard.html">Login</a>
+        <a class="waves-effect waves-light btn" id="btnSubmit" onclick="return validateForm()">Login</a>
         <a class="waves-effect waves-light btn">Forgot password</a>
         <a id="registerlink" class="modal-trigger" href="#regis-modal">
           <span>
@@ -49,20 +51,22 @@
           <div class="modal-content">
             <h4>Register an account</h4>
             <div class="row">
-              <form class="col s12">
+              <form class="col s12" name="register" id="register">
 
                 <!-- 1st name and last name section -->
                 <div class="row">
                   <!-- First Name -->
                   <div class="input-field col s6">
-                    <input id="first_name" type="text" class="validate">
+                    <input id="first_name" type="text" class="validate" name="first_name" required>
                     <label for="first_name">First Name</label>
+                    <p id="fn" style="color: red"></p>
                   </div>
 
                   <!-- Last Name -->
                   <div class="input-field col s6">
-                    <input id="last_name" type="text" class="validate">
+                    <input id="last_name" type="text" class="validate" required>
                     <label for="last_name">Last Name</label>
+                    <p id="ln" style="color: red"></p>
                   </div>
                 </div>
 
@@ -73,25 +77,36 @@
                     <input id="email" type="email" class="validate">
                     <label for="email">Email</label>
                     <span class="helper-text" data-error="Invalid email format" data-success="Valid"></span>
+                    <p id="em" style="color: red"></p>
                   </div>
 
                   <!-- Phone number -->
                   <div class="input-field col s6">
                     <input id="phone_number" type="text" class="validate">
                     <label for="phone_number">Phone Number</label>
+                    <p id="pn" style="color: red"></p>
                   </div>
                 </div>
 
                 <!-- password -->
                 <div class="row">
-                  <div class="input-field col s6">
-                    <input id="password" type="password" class="validate">
-                    <label for="password">Password</label>
+
+                  <div class="input-field col s4">
+                    <input id="username" type="text" class="validate">
+                    <label for="username">Username</label>
+                    <p id="un" style="color: red"></p>
                   </div>
 
-                  <div class="input-field col s6">
+                  <div class="input-field col s4">
+                    <input id="password" type="password" class="validate">
+                    <label for="password">Password</label>
+                    <p id="pw" style="color: red"></p>
+                  </div>
+
+                  <div class="input-field col s4">
                     <input id="re_password" type="password" class="validate">
                     <label for="re_password">Confirm your password</label>
+                    <p id="rpw" style="color: red"></p>
                   </div>
                 </div>
 
@@ -103,11 +118,11 @@
                     <p>Select your gender</p>
                     <p>
                       <label>
-                        <input class="with-gap" name="gender" type="radio" checked="checked" />
+                        <input class="with-gap" name="gender" type="radio" checked="checked" value="1" id="gender" />
                         <span>Male</span>
                       </label>
                       <label>
-                        <input class="with-gap" name="gender" type="radio" />
+                        <input class="with-gap" name="gender" type="radio" value="0" id="gender" />
                         <span>Female</span>
                       </label>
                     </p>
@@ -117,24 +132,26 @@
                   <!-- birthday -->
                   <div class="input-field col s5">
                     <p>Select your birthday</p>
-                    <input type="text" class="datepicker">
+                    <input type="text" class="datepicker" id="birthday">
+                    <p id="bd" style="color: red"></p>
                   </div>
 
                   <!-- choose unversity -->
                   <div class="input-field col s5 s4">
                     <p>Choose your university</p>
-                    <select class="icons">
+                    <select class="icons" id="school">
                       <option value="" disabled selected>Choose your option</option>
-                      <option value="" data-icon="./res/imgs/kinhte.jpg">Đại học Kinh Tế</option>
-                      <option value="" data-icon="./res/imgs/duytan.jpg">Đại học Duy Tân</option>
-                      <option value="" data-icon="./res/imgs/bachkhoa.jpg">Đại học Bách Khoa</option>
-                      <option value="" data-icon="./res/imgs/ngoaingu.jpg">Đại học Ngoại Ngữ</option>
-                      <option value="" data-icon="./res/imgs/donga.jpg">Đại học Đông Á</option>
-                      <option value="" data-icon="./res/imgs/kientruc.jpg">Đại học Kiến Trúc</option>
-                      <option value="" data-icon="./res/imgs/spkt.jpg">Đại học Sư phạm kỹ thuật</option>
-                      <option value="" data-icon="./res/imgs">Cao đẳng Thương mại</option>
-                      <option value="" data-icon="./res/imgs">Cao đẳng Kinh tế kế hoạch</option>
+                      <option value="1" data-icon="./res/imgs/kinhte.jpg">Đại học Kinh Tế</option>
+                      <option value="2" data-icon="./res/imgs/duytan.jpg">Đại học Duy Tân</option>
+                      <option value="3" data-icon="./res/imgs/bachkhoa.jpg">Đại học Bách Khoa</option>
+                      <option value="4" data-icon="./res/imgs/ngoaingu.jpg">Đại học Ngoại Ngữ</option>
+                      <option value="5" data-icon="./res/imgs/donga.jpg">Đại học Đông Á</option>
+                      <option value="6" data-icon="./res/imgs/kientruc.jpg">Đại học Kiến Trúc</option>
+                      <option value="7" data-icon="./res/imgs/spkt.jpg">Đại học Sư phạm kỹ thuật</option>
+                      <option value="8" data-icon="./res/imgs">Cao đẳng Thương mại</option>
+                      <option value="9" data-icon="./res/imgs">Cao đẳng Kinh tế kế hoạch</option>
                     </select>
+                    <p id="sc" style="color: red"></p>
                   </div>
 
                 </div>
@@ -142,8 +159,8 @@
             </div>
           </div>
           <div class="modal-footer">
-            <a href="#!" class="modal-close waves-effect waves-light btn">Register</a>
-            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+            <a class="waves-effect waves-light btn" id="btnRegister" onclick=" return validateRegisterModal()">Register</a>
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat" onclick=" return clearModal()">Close</a>
           </div>
         </div>
         <!-- End of register modal -->
