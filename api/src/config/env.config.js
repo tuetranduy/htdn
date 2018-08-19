@@ -1,7 +1,7 @@
 export default {
 	production: {
-		host: "ec2-54-209-171-72.compute-1.amazonaws.com",
-		port: 3001,
+		host: "api.hocthuedanang.tk",
+		port: 3000,
 		secretKey: "AT595r768gqHdSLqzew746hNp5VrpN7a"
 	},
 	development: {

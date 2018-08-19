@@ -1,9 +1,9 @@
 export default {
 	production: {
-		host: "pbs.cbyy5ijglgrc.us-east-1.rds.amazonaws.com",
-		user: "pbs",
+		host: "htdn-db.cbyy5ijglgrc.us-east-1.rds.amazonaws.com",
+		user: "htdn",
 		password: "12345678",
-		database: "pbs",
+		database: "htdn_db",
 		timezone: "GMT",
 		dateStrings: "DATETIME"
 	},
