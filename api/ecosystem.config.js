@@ -10,7 +10,7 @@ module.exports = {
         key: './ssh/htdn-api.ppk',
         ref: 'origin/master',
         repo: 'git@github.com:tuetranduy/htdn.git',
-        path: '/home/ubuntu/htdn',
+        path: '/home/ubuntu/htdn/production',
         'post-deploy': 'npm install && pm2 startOrRestart ecosystem.config.js'
       }
     }
