@@ -1,7 +1,7 @@
 export default {
 	production: {
 		host: "ec2-52-205-185-207.compute-1.amazonaws.com",
-		port: 3000,
+		port: 80,
 		secretKey: "AT595r768gqHdSLqzew746hNp5VrpN7a"
 	},
 	development: {
