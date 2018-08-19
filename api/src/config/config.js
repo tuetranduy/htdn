@@ -1,7 +1,7 @@
 import dbConfig from "./db.config";
 import envConfig from "./env.config";
 
-const env = process.env.ENV || "production";
+const env = process.env.ENV || "development";
 
 module.exports = {
 	application: {

@@ -11,7 +11,7 @@ export default {
 		host: "127.0.0.1",
 		user: "root",
 		password: "root",
-		database: "pbs",
+		database: "htdn_db",
 		timezone: "GMT",
 		dateStrings: "DATETIME"
 	}

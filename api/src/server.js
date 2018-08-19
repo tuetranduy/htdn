@@ -40,7 +40,7 @@ server.connection({
     port: config.application.port,
     routes: {
         cors: true
-    } // enable cors
+    }
 });
 
 // set up jwt
