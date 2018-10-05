@@ -1,4 +1,5 @@
-const URL = "http://localhost:3001";
+// const URL = "http://localhost:3001";
+const URL = "http:///api.hocthuedanang.tk"
 
 // Modal
 document.addEventListener("DOMContentLoaded", function () {
@@ -69,7 +70,7 @@ function validateForm() {
       },
 
       error: function () {
-        console.log("login error");
+        document.getElementById("account-validate").innerHTML = "Username or password is wrong, please try again.";
       },
     });
   } else {
@@ -115,41 +116,44 @@ function validateRegisterModal() {
       cache: false,
       timeout: 5000,
 
-      success: function (data) {
-        console.log(data);
-        console.log("register sucess");
+      success: function () {
+        M.toast({
+          html: 'Register successfully'
+        });
+        // instance.close();
       },
 
       error: function () {
         console.log("register error");
       },
     });
-  }
-  if (fn == "") {
-    document.getElementById("fn").innerHTML = "Plese enter first name";
-  }
-  if (ln == "") {
-    document.getElementById("ln").innerHTML = "Plese enter last name";
-  }
-  if (em == "") {
-    document.getElementById("em").innerHTML = "Plese enter email";
-  }
-  if (pn == "") {
-    document.getElementById("pn").innerHTML = "Plese enter phone number";
-  }
-  if (un == "") {
-    document.getElementById("un").innerHTML = "Plese enter username";
-  }
-  if (pw == "") {
-    document.getElementById("pw").innerHTML = "Plese enter password";
-  }
-  if (rpw == "") {
-    document.getElementById("rpw").innerHTML = "Confirmation password not match";
-  }
-  if (bd == "") {
-    document.getElementById("bd").innerHTML = "Plese enter your birthday";
-  }
-  if (sc == "") {
-    document.getElementById("sc").innerHTML = "Plese enter your university";
+  } else {
+    if (fn == "") {
+      document.getElementById("fn").innerHTML = "Plese enter first name";
+    }
+    if (ln == "") {
+      document.getElementById("ln").innerHTML = "Plese enter last name";
+    }
+    if (em == "") {
+      document.getElementById("em").innerHTML = "Please enter email";
+    }
+    if (pn == "") {
+      document.getElementById("pn").innerHTML = "Plese enter phone number";
+    }
+    if (un == "") {
+      document.getElementById("un").innerHTML = "Plese enter username";
+    }
+    if (pw == "") {
+      document.getElementById("pw").innerHTML = "Plese enter password";
+    }
+    if (rpw == "") {
+      document.getElementById("rpw").innerHTML = "Confirmation password not match";
+    }
+    if (bd == "") {
+      document.getElementById("bd").innerHTML = "Plese enter your birthday";
+    }
+    if (sc == "") {
+      document.getElementById("sc").innerHTML = "Plese enter your university";
+    }
   }
 }
